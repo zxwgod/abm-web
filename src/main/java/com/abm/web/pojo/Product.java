@@ -3,8 +3,6 @@ package com.abm.web.pojo;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
-import com.alibaba.fastjson.annotation.JSONField;
-
 public class Product implements Serializable{
 	
 	private static final long serialVersionUID = 4233303062143933600L;
@@ -24,8 +22,7 @@ public class Product implements Serializable{
 	private String updatedTs;
 	
 	//以下数据由读取收藏表设置
-	@JSONField(name="isPraise")
-	private boolean userPraise;
+	private boolean userPraise = false;
 	
 	public Integer getId() {
 		return id;
@@ -111,7 +108,7 @@ public class Product implements Serializable{
 	public void setUpdatedTs(String updatedTs) {
 		this.updatedTs = updatedTs;
 	}
-	public boolean isUserPraise() {
+	public boolean getUserPraise() {
 		return userPraise;
 	}
 	public void setUserPraise(boolean userPraise) {

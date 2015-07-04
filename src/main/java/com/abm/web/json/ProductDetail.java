@@ -6,6 +6,7 @@ import java.util.Arrays;
 
 import com.abm.web.dao.global.Separator;
 import com.abm.web.pojo.Product;
+import com.alibaba.fastjson.annotation.JSONField;
 
 public class ProductDetail implements Serializable{
 	private static final long serialVersionUID = 7697614791994370556L;
@@ -16,6 +17,9 @@ public class ProductDetail implements Serializable{
 	private BigDecimal price;
 	private String[] detailPics;
 	private String link;
+
+	@JSONField(name="isPraise")
+	private boolean userPraise = false;
 	
 	public ProductDetail(Product product){
 		id = product.getFid();
@@ -25,6 +29,7 @@ public class ProductDetail implements Serializable{
 		link = product.getBuyUrl();
 		upImgs = product.getShowPics().split(Separator.COMMON);
 		detailPics = product.getDetailPics().split(Separator.COMMON);
+		userPraise = product.getUserPraise();
 	}
 
 	public String getId() {
@@ -83,13 +88,20 @@ public class ProductDetail implements Serializable{
 		this.link = link;
 	}
 
+	public boolean getUserPraise() {
+		return userPraise;
+	}
+
+	public void setUserPraise(boolean userPraise) {
+		this.userPraise = userPraise;
+	}
+
 	@Override
 	public String toString() {
 		return "ProductDetail [id=" + id + ", name=" + name + ", desc=" + desc
 				+ ", upImgs=" + Arrays.toString(upImgs) + ", price=" + price
 				+ ", detailPics=" + Arrays.toString(detailPics) + ", link="
-				+ link + "]";
+				+ link + ", userPraise=" + userPraise + "]";
 	}
-	
-	
+
 }

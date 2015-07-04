@@ -22,7 +22,7 @@ public class Guide implements Serializable{
 	private String updatedTs;
 	//用户是否收藏，手动设置
 	@JSONField(name="isPraise")
-	private boolean userPraise;
+	private boolean userPraise = false;
 
 	@JSONField(serialize = false)
 	public Integer getId() {
@@ -81,7 +81,7 @@ public class Guide implements Serializable{
 	public void setUpdatedTs(String updatedTs) {
 		this.updatedTs = updatedTs;
 	}
-	public boolean isUserPraise() {
+	public boolean getUserPraise() {
 		return userPraise;
 	}
 	public void setUserPraise(boolean userPraise) {

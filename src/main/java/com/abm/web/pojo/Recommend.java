@@ -38,7 +38,7 @@ public class Recommend implements Serializable{
 	private String userHead;
 	//以下数据根据是否用户收藏判断
 	@JSONField(name="isPraise")
-	private boolean userPraise;
+	private boolean userPraise = false;
 	
 	@JSONField(deserialize = false)
 	public Integer getId() {
@@ -138,7 +138,7 @@ public class Recommend implements Serializable{
 	public void setPraise(int praise) {
 		this.praise = praise;
 	}
-	public boolean isUserPraise() {
+	public boolean getUserPraise() {
 		return userPraise;
 	}
 	public void setUserPraise(boolean userPraise) {
