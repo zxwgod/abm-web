@@ -23,7 +23,8 @@ public class Guide implements Serializable{
 	//用户是否收藏，手动设置
 	@JSONField(name="isPraise")
 	private boolean userPraise;
-	
+
+	@JSONField(serialize = false)
 	public Integer getId() {
 		return id;
 	}
@@ -66,12 +67,14 @@ public class Guide implements Serializable{
 	public void setDescHtml(String descHtml) {
 		this.descHtml = descHtml;
 	}
+	@JSONField(serialize = false)
 	public String getCreatedTs() {
 		return createdTs;
 	}
 	public void setCreatedTs(String createdTs) {
 		this.createdTs = createdTs;
 	}
+	@JSONField(serialize = false)
 	public String getUpdatedTs() {
 		return updatedTs;
 	}

@@ -18,8 +18,10 @@ public class Rotate implements Serializable{
 	private int weight;
 	@JSONField(serialize = false)
 	private String createdTs;
-	@JSONField(serialize = false)
+	@JSONField(deserialize = false)
 	private String updatedTs;
+	
+	@JSONField(deserialize = false)
 	public Integer getId() {
 		return id;
 	}
@@ -44,18 +46,21 @@ public class Rotate implements Serializable{
 	public void setUrl(String url) {
 		this.url = url;
 	}
+	@JSONField(deserialize = false)
 	public int getWeight() {
 		return weight;
 	}
 	public void setWeight(int weight) {
 		this.weight = weight;
 	}
+	@JSONField(deserialize = false)
 	public String getCreatedTs() {
 		return createdTs;
 	}
 	public void setCreatedTs(String createdTs) {
 		this.createdTs = createdTs;
 	}
+	@JSONField(deserialize = false)
 	public String getUpdatedTs() {
 		return updatedTs;
 	}

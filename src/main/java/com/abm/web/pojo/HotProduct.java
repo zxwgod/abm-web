@@ -43,12 +43,14 @@ public class HotProduct implements Serializable{
 	public void setDesc(String desc) {
 		this.desc = desc;
 	}
+	@JSONField(serialize = false)
 	public String getCreatedTs() {
 		return createdTs;
 	}
 	public void setCreatedTs(String createdTs) {
 		this.createdTs = createdTs;
 	}
+	@JSONField(serialize = false)
 	public String getUpdatedTs() {
 		return updatedTs;
 	}

@@ -20,12 +20,14 @@ public class User implements Serializable{
 	private String createdTs;
 	@JSONField(serialize = false)
 	private String updatedTs;
+	@JSONField(deserialize = false)
 	public Integer getId() {
 		return id;
 	}
 	public void setId(Integer id) {
 		this.id = id;
 	}
+	@JSONField(deserialize = false)
 	public String getWechatId() {
 		return wechatId;
 	}
@@ -50,12 +52,14 @@ public class User implements Serializable{
 	public void setFid(String fid) {
 		this.fid = fid;
 	}
+	@JSONField(deserialize = false)
 	public String getCreatedTs() {
 		return createdTs;
 	}
 	public void setCreatedTs(String createdTs) {
 		this.createdTs = createdTs;
 	}
+	@JSONField(deserialize = false)
 	public String getUpdatedTs() {
 		return updatedTs;
 	}

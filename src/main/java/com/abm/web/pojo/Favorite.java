@@ -65,12 +65,14 @@ public class Favorite implements Serializable{
 	public void setType(int type) {
 		this.type = type;
 	}
+	@JSONField(serialize = false)
 	public String getCreatedTs() {
 		return createdTs;
 	}
 	public void setCreatedTs(String createdTs) {
 		this.createdTs = createdTs;
 	}
+	@JSONField(serialize = false)
 	public String getUpdatedTs() {
 		return updatedTs;
 	}

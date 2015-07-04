@@ -6,7 +6,6 @@ import com.alibaba.fastjson.annotation.JSONField;
 
 public class Recommend implements Serializable{
 
-	@JSONField(serialize = false)
 	private static final long serialVersionUID = 4233303062143933600L;
 	//以下数据从db取
 	@JSONField(serialize = false)
@@ -41,6 +40,7 @@ public class Recommend implements Serializable{
 	@JSONField(name="isPraise")
 	private boolean userPraise;
 	
+	@JSONField(deserialize = false)
 	public Integer getId() {
 		return id;
 	}
@@ -59,6 +59,7 @@ public class Recommend implements Serializable{
 	public void setDesc(String desc) {
 		this.desc = desc;
 	}
+	@JSONField(serialize = false)
 	public String getUserFid() {
 		return userFid;
 	}
@@ -71,24 +72,28 @@ public class Recommend implements Serializable{
 	public void setPic(String pic) {
 		this.pic = pic;
 	}
+	@JSONField(serialize = false)
 	public String getUrl() {
 		return url;
 	}
 	public void setUrl(String url) {
 		this.url = url;
 	}
+	@JSONField(serialize = false)
 	public int getWeight() {
 		return weight;
 	}
 	public void setWeight(int weight) {
 		this.weight = weight;
 	}
+	@JSONField(serialize = false)
 	public String getCreatedTs() {
 		return createdTs;
 	}
 	public void setCreatedTs(String createdTs) {
 		this.createdTs = createdTs;
 	}
+	@JSONField(serialize = false)
 	public String getUpdatedTs() {
 		return updatedTs;
 	}
@@ -113,12 +118,14 @@ public class Recommend implements Serializable{
 	public void setUserHead(String userHead) {
 		this.userHead = userHead;
 	}
+	@JSONField(serialize = false)
 	public String getRecommendFid() {
 		return recommendFid;
 	}
 	public void setRecommendFid(String recommendFid) {
 		this.recommendFid = recommendFid;
 	}
+	@JSONField(serialize = false)
 	public int getRecommendType() {
 		return recommendType;
 	}
