@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.abm.web.dao.ProductDao">
+    
+    <update id="praiseProduct" parameterType="java.util.Map">
+        update product
+        <set>
+            praise = #{praise}
+        </set>
+        <where>
+            fid = #{fid}
+        </where>
+    </update>
+
+    <select id="getByFid" parameterType="java.lang.String" resultType="Product">
+        <![CDATA[
+            select
+                id,
+                fid,
+                praise,
+                url,
+                buy_url as buyUrl,
+                price,
+                title,
+                show_pics as showPics,
+                detail_pics as detailPics,
+                `desc`,
+                cate1_fid as cate1Fid,
+                cate2_fid as cate2Fid,
+                created_ts as createdTs,
+                updated_ts as updatedTs
+            from
+                product
+        ]]>
+        <where>
+            fid = #{fid}
+        </where>
+    </select>
+
+	<select id="searchByCategory" parameterType="java.util.Map" resultType="Product">
+        <![CDATA[
+            select
+                id,
+                fid,
+                praise,
+                url,
+                buy_url as buyUrl,
+                price,
+                title,
+                show_pics as showPics,
+                detail_pics as detailPics,
+                `desc`,
+                cate1_fid as cate1Fid,
+                cate2_fid as cate2Fid,
+                created_ts as createdTs,
+                updated_ts as updatedTs
+            from
+                product
+        ]]>
+        <where>
+            <if test='cate1Fid != null and cate1Fid != ""'>
+            	cate1_fid = #{cate1Fid}
+            </if>
+            <if test='cate2Fid != null and cate2Fid != ""'>
+            	and cate2_fid = #{cate2Fid}
+            </if>
+        </where>
+        limit #{start}, #{count}
+    </select>
+    
+    <select id="searchByCategoryCount" resultType="int">
+           select
+               count(1)
+           from
+               product
+        <where>
+            <if test="cate1Fid != null">
+            	cate1_fid = #{cate1Fid}
+            </if>
+            <if test="cate2Fid != null">
+            	and cate2_fid = #{cate2Fid}
+            </if>
+        </where>
+    </select>
+    
+    <select id="searchByCategory9" parameterType="java.util.Map" resultType="Product">
+        <![CDATA[
+            select
+                id,
+                fid,
+                praise,
+                url,
+                buy_url as buyUrl,
+                price,
+                title,
+                show_pics as showPics,
+                detail_pics as detailPics,
+                `desc`,
+                cate1_fid as cate1Fid,
+                cate2_fid as cate2Fid,
+                created_ts as createdTs,
+                updated_ts as updatedTs
+            from
+                product
+        ]]>
+        <where>
+            <if test="cate9Fid != null">
+            	cate9_fid = #{cate9Fid}
+            </if>
+        </where>
+        limit #{start}, #{count}
+    </select>
+    
+    <select id="searchByCategory9Count" resultType="int">
+           select
+               count(1)
+           from
+               product
+        <where>
+            <if test="cate9Fid != null">
+            	cate9_fid = #{cate9Fid}
+            </if>
+        </where>
+    </select>
+    
+</mapper>

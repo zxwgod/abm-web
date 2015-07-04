@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.abm.web.dao.RecommendDao">
+
+	<select id="getByFid" parameterType="java.lang.String"
+		resultType="Recommend">
+        <![CDATA[
+            select
+                id,
+                fid,
+                recommend_fid as recommendFid,
+                recommend_type as recommendType,
+                title,
+                `desc`,
+                user_fid as userFid,
+                pic,
+                url,
+                weight,
+                created_ts as createdTs,
+                updated_ts as updatedTs
+            from
+                recommend
+        ]]>
+		<where>
+			fid = #{fid}
+		</where>
+	</select>
+
+	<select id="getList" resultType="Recommend">
+        <![CDATA[
+            select
+                id,
+                fid,
+                recommend_fid as recommendFid,
+                title,
+                `desc`,
+                user_fid as userFid,
+                pic,
+                url,
+                weight,
+                created_ts as createdTs,
+                updated_ts as updatedTs
+            from
+                recommend
+            where
+            	weight > 100000
+            order by weight desc
+        	limit #{start}, #{count}
+        ]]>
+	</select>
+
+	<select id="getCount" resultType="int">
+		select
+			count(1)
+		from
+			recommend
+		where
+			weight > 100000
+	</select>
+
+</mapper>

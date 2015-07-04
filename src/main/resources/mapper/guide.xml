@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.abm.web.dao.GuideDao">
+
+    <select id="getByFid"
+            parameterType="java.lang.String"
+            resultType="Guide">
+        <![CDATA[
+            select
+                id,
+                fid,
+                title,
+                pic,
+                praise,
+                share,
+                desc_html as descHtml,
+                created_ts as createdTs,
+                updated_ts as updatedTs
+            from
+                guide
+        ]]>
+        <where>
+            fid = #{fid}
+        </where>
+    </select>
+    
+    <update id="praiseGuide" parameterType="java.util.Map">
+        update guide
+        <set>
+            praise = #{praise}
+        </set>
+        <where>
+            fid = #{fid}
+        </where>
+    </update>
+
+</mapper>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.abm.web.dao.RotateDao">
+
+	<select id="getAll" resultType="Rotate">
+        <![CDATA[
+            select
+                id,
+                pic,
+                `desc`,
+                url,
+                weight,
+                created_ts as createdTs,
+                updated_ts as updatedTs
+            from
+                rotate
+            where
+            	weight > 100000
+            order by weight desc
+        ]]>
+    </select>
+    
+</mapper>

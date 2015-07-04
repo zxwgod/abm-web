@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.abm.web.dao.HotProductDao">
+
+	<select id="getList" resultType="HotProduct">
+        <![CDATA[
+            select
+                id,
+                pic,
+                product_fid as productFid,
+                `desc`,
+                created_ts as createdTs,
+                updated_ts as updatedTs
+            from
+                hot_product
+            limit #{start}, #{count}
+        ]]>
+	</select>
+
+	<select id="getCount" resultType="int">
+		select
+			count(1)
+		from
+			hot_product
+	</select>
+
+</mapper>

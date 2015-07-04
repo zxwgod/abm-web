@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <settings>
+        <setting name="cacheEnabled" value="false" />
+        <setting name="defaultExecutorType" value="REUSE" />
+    </settings>
+
+    <typeAliases>
+        <typeAlias alias="Category" type="com.abm.web.pojo.Category"/>
+        <typeAlias alias="Favorite" type="com.abm.web.pojo.Favorite"/>
+        <typeAlias alias="Guide" type="com.abm.web.pojo.Guide"/>
+        <typeAlias alias="HotProduct" type="com.abm.web.pojo.HotProduct"/>
+        <typeAlias alias="Product" type="com.abm.web.pojo.Product"/>
+        <typeAlias alias="Recommend" type="com.abm.web.pojo.Recommend"/>
+        <typeAlias alias="Rotate" type="com.abm.web.pojo.Rotate"/>
+        <typeAlias alias="User" type="com.abm.web.pojo.User"/>
+    </typeAliases>
+
+    <mappers>
+        <mapper resource="mapper/category.xml" />
+        <mapper resource="mapper/favorite.xml" />
+        <mapper resource="mapper/guide.xml" />
+        <mapper resource="mapper/hotProduct.xml" />
+        <mapper resource="mapper/product.xml" />
+        <mapper resource="mapper/recommend.xml" />
+        <mapper resource="mapper/rotate.xml" />
+        <mapper resource="mapper/user.xml" />
+    </mappers>
+
+</configuration> 
+    

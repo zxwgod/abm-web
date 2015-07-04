@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.abm.web.dao.CategoryDao">
+
+    <select id="getCate9List" parameterType="java.util.Map" resultType="Category">
+        <![CDATA[
+            select
+                id,
+                fid,
+                name,
+                show_url as showUrl,
+                url,
+                type,
+                parent_fid as parentFid,
+                created_ts as createdTs,
+                updated_ts as updatedTs
+            from
+                category
+        ]]>
+        <where>
+            type = 1
+        </where>
+    </select>
+    
+    <select id="getCateTreeList" parameterType="java.util.Map" resultType="Category">
+        <![CDATA[
+            select
+                id,
+                fid,
+                name,
+                show_url as showUrl,
+                url,
+                type,
+                parent_fid as parentFid,
+                created_ts as createdTs,
+                updated_ts as updatedTs
+            from
+                category
+        ]]>
+        <where>
+            type = 2 or type = 3
+        </where>
+    </select>
+
+</mapper>
