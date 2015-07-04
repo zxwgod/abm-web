@@ -102,16 +102,13 @@ public class RecommendController extends BaseController{
 			if(recommend == null) throw new ObjectNotFoundException();
 			
 			if(praiseRecommendReq.getOperate() == PraiseType.PRAISE.getCode()){//收藏
-				Favorite favorite = null;
-				if(recommend.getRecommendType() == RecommendType.GUIDE.getCode()){
-					favorite = favoriteService.getFavorite(userFid, recommend.getFid(), FavorType.GUIDE);
-					if(favorite != null){
-						logger.info("favorite is already exists, favorite {}", favorite);
-						return new BaseResp(RespInfo.FAVORITE_EXISTS_ERROR);
-					}
-					
-					guideService.praiseGuide(recommend.getRecommendFid());
+				Favorite favorite = favoriteService.getFavorite(userFid, recommend.getFid(), FavorType.RECOMMEND);
+				if(favorite != null){
+					logger.info("favorite is already exists, favorite {}", favorite);
+					return new BaseResp(RespInfo.FAVORITE_EXISTS_ERROR);
 				}
+				
+				guideService.praiseGuide(recommend.getRecommendFid());
 				
 				favorite = new Favorite();
 				favorite.setFavorFid(recommend.getFid());

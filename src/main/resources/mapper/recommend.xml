@@ -32,6 +32,7 @@
                 id,
                 fid,
                 recommend_fid as recommendFid,
+                recommend_type as recommendType,
                 title,
                 `desc`,
                 user_fid as userFid,
