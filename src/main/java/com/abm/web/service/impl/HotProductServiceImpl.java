@@ -25,7 +25,7 @@ public class HotProductServiceImpl implements HotProductService{
 		List<HotProduct> hotProductList = hotProductDao.getList(start, count);
 		for(HotProduct hotProduct : hotProductList){
 			
-			Product product = productDao.getByFid(hotProduct.getProductId());
+			Product product = productDao.getByFid(hotProduct.getProductFid());
 			if(product != null){
 				hotProduct.setPraise(product.getPraise());
 				hotProduct.setPrice(product.getPrice());

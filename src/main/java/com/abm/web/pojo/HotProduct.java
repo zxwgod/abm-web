@@ -14,7 +14,7 @@ public class HotProduct implements Serializable{
 	private Integer id;
 	private String pic;
 	@JSONField(name="id")
-	private String productId;
+	private String productFid;
 	private String desc;
 	@JSONField(serialize = false)
 	private String createdTs;
@@ -36,12 +36,6 @@ public class HotProduct implements Serializable{
 	}
 	public void setPic(String pic) {
 		this.pic = pic;
-	}
-	public String getProductId() {
-		return productId;
-	}
-	public void setProductId(String productId) {
-		this.productId = productId;
 	}
 	public String getDesc() {
 		return desc;
@@ -73,10 +67,16 @@ public class HotProduct implements Serializable{
 	public void setPraise(int praise) {
 		this.praise = praise;
 	}
+	public String getProductFid() {
+		return productFid;
+	}
+	public void setProductFid(String productFid) {
+		this.productFid = productFid;
+	}
 	@Override
 	public String toString() {
-		return "HotProduct [id=" + id + ", pic=" + pic + ", productId="
-				+ productId + ", desc=" + desc + ", createdTs=" + createdTs
+		return "HotProduct [id=" + id + ", pic=" + pic + ", productFid="
+				+ productFid + ", desc=" + desc + ", createdTs=" + createdTs
 				+ ", updatedTs=" + updatedTs + ", price=" + price + ", praise="
 				+ praise + "]";
 	}
