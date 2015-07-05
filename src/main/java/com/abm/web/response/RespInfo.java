@@ -8,6 +8,7 @@ public class RespInfo {
 	public static final RespInfo USER_NOT_EXISTS_ERROR = new RespInfo(2002,"用户不存在");
 	public static final RespInfo PRODUCT_NOT_EXISTS_ERROR = new RespInfo(2003,"商品不存在");
 	public static final RespInfo FAVORITE_NOT_EXISTS_ERROR = new RespInfo(2004,"收藏信息不存在");
+	public static final RespInfo RECOMMEND_NOT_EXISTS_ERROR = new RespInfo(2005,"推荐信息不存在");
 	public static final RespInfo FAVORITE_EXISTS_ERROR = new RespInfo(3002,"收藏信息已经存在");
 	
 	public RespInfo(){

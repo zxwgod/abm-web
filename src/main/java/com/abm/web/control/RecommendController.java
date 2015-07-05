@@ -148,15 +148,23 @@ public class RecommendController extends BaseController{
 		
 		RecommendDetailReq recommendDetailReq = JSON.parseObject(params, RecommendDetailReq.class);
 		
-		Guide guide = guideService.getByFid(recommendDetailReq.getRecommendId());
+		Recommend recommend = recommendService.getByFid(recommendDetailReq.getRecommendId());
 		
-		if(guide != null && StringUtils.isNotBlank(recommendDetailReq.getUserId())){
-			Favorite favorite = favoriteService.getFavorite(recommendDetailReq.getUserId(), recommendDetailReq.getRecommendId(), FavorType.RECOMMEND);
-			if(favorite != null){
-				guide.setUserPraise(true);
-			}
+		if(recommend == null){
+			return new BaseResp(RespInfo.RECOMMEND_NOT_EXISTS_ERROR);
 		}
-		result.setData(guide);
+		
+		if(recommend.getRecommendType() == RecommendType.GUIDE.getCode()){
+			Guide guide = guideService.getByFid(recommend.getRecommendFid());
+			
+			if(guide != null && StringUtils.isNotBlank(recommendDetailReq.getUserId())){
+				Favorite favorite = favoriteService.getFavorite(recommendDetailReq.getUserId(), recommendDetailReq.getRecommendId(), FavorType.RECOMMEND);
+				if(favorite != null){
+					guide.setUserPraise(true);
+				}
+			}
+			result.setData(guide);
+		}
 		
 		return result;
 	}
