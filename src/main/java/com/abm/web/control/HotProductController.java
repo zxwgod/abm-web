@@ -19,7 +19,7 @@ import com.abm.web.service.HotProductService;
 import com.alibaba.fastjson.JSON;
 
 @Controller
-@RequestMapping(value = "abm/hotProduct")
+@RequestMapping(value = "api/hotProduct")
 public class HotProductController extends BaseController{
 
 	private static Logger logger = LoggerFactory.getLogger(HotProductController.class);

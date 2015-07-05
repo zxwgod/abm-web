@@ -19,7 +19,7 @@ import com.abm.web.service.RotateService;
 import com.alibaba.fastjson.JSON;
 
 @Controller
-@RequestMapping(value = "abm/rotate")
+@RequestMapping(value = "api/rotate")
 public class RotateController extends BaseController{
 
 	private static Logger logger = LoggerFactory.getLogger(RotateController.class);

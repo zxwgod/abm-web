@@ -34,7 +34,7 @@ import com.abm.web.service.UserService;
 import com.alibaba.fastjson.JSON;
 
 @Controller
-@RequestMapping(value = "abm/recommend")
+@RequestMapping(value = "api/recommend")
 public class RecommendController extends BaseController{
 
 	private static Logger logger = LoggerFactory.getLogger(RecommendController.class);

@@ -17,7 +17,7 @@ import com.abm.web.service.UserService;
 import com.alibaba.fastjson.JSON;
 
 @Controller
-@RequestMapping(value = "abm/user")
+@RequestMapping(value = "api/user")
 public class UserController extends BaseController{
 
 	private static Logger logger = LoggerFactory.getLogger(UserController.class);

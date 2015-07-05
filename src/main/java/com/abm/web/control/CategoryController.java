@@ -30,7 +30,7 @@ import com.alibaba.fastjson.JSON;
 import com.google.common.collect.Lists;
 
 @Controller
-@RequestMapping(value = "abm/category")
+@RequestMapping(value = "api/category")
 public class CategoryController extends BaseController{
 
 	private static Logger logger = LoggerFactory.getLogger(CategoryController.class);
