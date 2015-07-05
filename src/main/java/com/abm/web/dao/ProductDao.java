@@ -10,7 +10,7 @@ public interface ProductDao {
 
 	public Product getByFid(String fid);
 	
-	public void praiseProduct(String fid, int praise);
+	public void praiseProduct(@Param("fid")String fid, @Param("praise")int praise);
 	
 	public List<Product> searchByCategory(@Param("cate1Fid")String cate1Fid
 			, @Param("cate2Fid")String cate2Fid, @Param("start")int start, @Param("count")int count);
