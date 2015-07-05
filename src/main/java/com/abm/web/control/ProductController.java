@@ -12,15 +12,18 @@ import com.abm.web.dao.global.Separator;
 import com.abm.web.enums.FavorProductType;
 import com.abm.web.enums.FavorType;
 import com.abm.web.exception.ObjectNotFoundException;
+import com.abm.web.exception.ParamNullException;
 import com.abm.web.json.ProductDetail;
 import com.abm.web.pojo.Favorite;
 import com.abm.web.pojo.Product;
+import com.abm.web.pojo.User;
 import com.abm.web.request.FavorProductReq;
 import com.abm.web.request.ProductDetailReq;
 import com.abm.web.response.BaseResp;
 import com.abm.web.response.RespInfo;
 import com.abm.web.service.FavoriteService;
 import com.abm.web.service.ProductService;
+import com.abm.web.service.UserService;
 import com.alibaba.fastjson.JSON;
 
 @Controller
@@ -33,6 +36,8 @@ public class ProductController extends BaseController{
 	private ProductService productService;
 	@Resource
 	private FavoriteService favoriteService;
+	@Resource
+	private UserService userService;
 
 	@RequestMapping(value = "detail")
     @ResponseBody
@@ -74,6 +79,17 @@ public class ProductController extends BaseController{
 		
 		FavorProductReq favorProductReq = JSON.parseObject(params, FavorProductReq.class);
 		
+		String userFid = favorProductReq.getUserId();
+		User user;
+		try {
+			user = userService.getByFid(userFid);
+		} catch (ParamNullException e) {
+			return new BaseResp(RespInfo.REQ_PARAM_ERROR);
+		}
+		if(user == null){
+			return new BaseResp(RespInfo.USER_NOT_EXISTS_ERROR);
+		}
+		
 		try {
 			Product product = productService.getByFid(favorProductReq.getGoodsId());
 			if(product == null){
@@ -81,9 +97,15 @@ public class ProductController extends BaseController{
 			}
 			
 			if(favorProductReq.getOperate() == FavorProductType.FAVOR.getCode()){//收藏
+				Favorite favorite = favoriteService.getFavorite(userFid, product.getFid(), FavorType.PRODUCT);
+				if(favorite != null){
+					logger.info("favorite is already exists, favorite {}", favorite);
+					return new BaseResp(RespInfo.FAVORITE_EXISTS_ERROR);
+				}
+				
 				productService.praiseProduct(product.getFid());
 				
-				Favorite favorite = new Favorite();
+				favorite = new Favorite();
 				favorite.setFavorFid(product.getFid());
 				favorite.setDesc(product.getDesc());
 				favorite.setFavorUrl(product.getUrl());

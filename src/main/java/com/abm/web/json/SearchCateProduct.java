@@ -9,6 +9,7 @@ public class SearchCateProduct implements Serializable{
 	private static final long serialVersionUID = 7697614791994370556L;
 	private String id;
 	private String name;
+	private String pic;
 	private String desc;
 	private int praise;
 	private BigDecimal price;
@@ -16,6 +17,7 @@ public class SearchCateProduct implements Serializable{
 	public SearchCateProduct(Product product){
 		id = product.getFid();
 		name = product.getTitle();
+		pic = product.getShowPics();
 		desc = product.getDesc();
 		price = product.getPrice();
 		praise = product.getPraise();
@@ -61,9 +63,19 @@ public class SearchCateProduct implements Serializable{
 		this.price = price;
 	}
 
+	public String getPic() {
+		return pic;
+	}
+
+	public void setPic(String pic) {
+		this.pic = pic;
+	}
+
 	@Override
 	public String toString() {
-		return "SearchCateTreeProduct [id=" + id + ", name=" + name + ", desc="
-				+ desc + ", praise=" + praise + ", price=" + price + "]";
+		return "SearchCateProduct [id=" + id + ", name=" + name + ", pic="
+				+ pic + ", desc=" + desc + ", praise=" + praise + ", price="
+				+ price + "]";
 	}
+
 }

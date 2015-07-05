@@ -20,5 +20,5 @@ public interface ProductDao {
 	public List<Product> searchByCategory9(@Param("cate9Fid")String cate9Fid
 			, @Param("start")int start, @Param("count")int count);
 
-	public int searchByCategory9Count(String cate9Fid);
+	public int searchByCategory9Count(@Param("cate9Fid")String cate9Fid);
 }

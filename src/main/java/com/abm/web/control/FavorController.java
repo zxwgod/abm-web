@@ -54,7 +54,7 @@ public class FavorController extends BaseController{
 		
 		FavorType favorType = null;
 		if(type == FavorTypeReq.GUIDE){
-			favorType = FavorType.GUIDE;
+			favorType = FavorType.RECOMMEND;
 		} else if(type == FavorTypeReq.PRODUCT){
 			favorType = FavorType.PRODUCT;
 		} else {

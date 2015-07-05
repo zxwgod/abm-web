@@ -68,7 +68,7 @@
         limit #{start}, #{count}
     </select>
     
-    <select id="searchByCategoryCount" resultType="int">
+    <select id="searchByCategoryCount" parameterType="java.util.Map" resultType="int">
            select
                count(1)
            from
@@ -111,7 +111,7 @@
         limit #{start}, #{count}
     </select>
     
-    <select id="searchByCategory9Count" resultType="int">
+    <select id="searchByCategory9Count" parameterType="java.util.Map" resultType="int">
            select
                count(1)
            from
