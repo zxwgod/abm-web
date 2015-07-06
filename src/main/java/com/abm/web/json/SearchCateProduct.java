@@ -7,7 +7,7 @@ import com.abm.web.pojo.Product;
 
 public class SearchCateProduct implements Serializable{
 	private static final long serialVersionUID = 7697614791994370556L;
-	private String id;
+	private String fid;
 	private String name;
 	private String pic;
 	private String desc;
@@ -15,7 +15,7 @@ public class SearchCateProduct implements Serializable{
 	private BigDecimal price;
 	
 	public SearchCateProduct(Product product){
-		id = product.getFid();
+		fid = product.getFid();
 		name = product.getTitle();
 		pic = product.getShowPics();
 		desc = product.getDesc();
@@ -23,12 +23,12 @@ public class SearchCateProduct implements Serializable{
 		praise = product.getPraise();
 	}
 
-	public String getId() {
-		return id;
+	public String getFid() {
+		return fid;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setFid(String fid) {
+		this.fid = fid;
 	}
 
 	public String getName() {
@@ -73,7 +73,7 @@ public class SearchCateProduct implements Serializable{
 
 	@Override
 	public String toString() {
-		return "SearchCateProduct [id=" + id + ", name=" + name + ", pic="
+		return "SearchCateProduct [fid=" + fid + ", name=" + name + ", pic="
 				+ pic + ", desc=" + desc + ", praise=" + praise + ", price="
 				+ price + "]";
 	}

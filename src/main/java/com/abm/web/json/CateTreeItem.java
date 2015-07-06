@@ -10,7 +10,7 @@ public class CateTreeItem  implements Serializable{
 
 	private static final long serialVersionUID = 1037673782376499365L;
 
-	private String id;
+	private String fid;
 	private String name;
 	private String pic;
 	private String picLink;
@@ -21,7 +21,7 @@ public class CateTreeItem  implements Serializable{
 	}
 	
 	public CateTreeItem(Category category){
-		id = category.getFid();
+		fid = category.getFid();
 		name = category.getName();
 		pic = category.getShowUrl();
 		picLink = category.getUrl();
@@ -33,11 +33,11 @@ public class CateTreeItem  implements Serializable{
 		}
 	}
 	
-	public String getId() {
-		return id;
+	public String getFid() {
+		return fid;
 	}
-	public void setId(String id) {
-		this.id = id;
+	public void setFid(String fid) {
+		this.fid = fid;
 	}
 	public String getName() {
 		return name;
@@ -70,7 +70,7 @@ public class CateTreeItem  implements Serializable{
 
 	@Override
 	public String toString() {
-		return "CateTreeItem [id=" + id + ", name=" + name + ", pic=" + pic
+		return "CateTreeItem [fid=" + fid + ", name=" + name + ", pic=" + pic
 				+ ", picLink=" + picLink + ", children=" + children + "]";
 	}
 	

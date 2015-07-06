@@ -11,7 +11,7 @@ public class HotProduct implements Serializable{
 	private static final long serialVersionUID = 4233303062143933600L;
 	//以下数据从db取
 	@JSONField(serialize = false)
-	private Integer id;
+	private transient Integer id;
 	private String pic;
 	@JSONField(name="id")
 	private String productFid;

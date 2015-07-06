@@ -10,7 +10,7 @@ import com.alibaba.fastjson.annotation.JSONField;
 
 public class ProductDetail implements Serializable{
 	private static final long serialVersionUID = 7697614791994370556L;
-	private String id;
+	private String fid;
 	private String name;
 	private String desc;
 	private String[] upImgs;
@@ -22,7 +22,7 @@ public class ProductDetail implements Serializable{
 	private boolean userPraise = false;
 	
 	public ProductDetail(Product product){
-		id = product.getFid();
+		fid = product.getFid();
 		name = product.getTitle();
 		desc = product.getDesc();
 		price = product.getPrice();
@@ -32,12 +32,12 @@ public class ProductDetail implements Serializable{
 		userPraise = product.getUserPraise();
 	}
 
-	public String getId() {
-		return id;
+	public String getFid() {
+		return fid;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setFid(String fid) {
+		this.fid = fid;
 	}
 
 	public String getName() {
@@ -98,7 +98,7 @@ public class ProductDetail implements Serializable{
 
 	@Override
 	public String toString() {
-		return "ProductDetail [id=" + id + ", name=" + name + ", desc=" + desc
+		return "ProductDetail [fid=" + fid + ", name=" + name + ", desc=" + desc
 				+ ", upImgs=" + Arrays.toString(upImgs) + ", price=" + price
 				+ ", detailPics=" + Arrays.toString(detailPics) + ", link="
 				+ link + ", userPraise=" + userPraise + "]";

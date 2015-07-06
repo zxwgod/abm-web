@@ -8,8 +8,7 @@ public class Guide implements Serializable{
 	
 	private static final long serialVersionUID = 4233303062143933600L;
 	@JSONField(serialize = false)
-	private Integer id;
-	@JSONField(name = "id")
+	private transient Integer id;
 	private String fid;
 	private String title;
 	private String pic;

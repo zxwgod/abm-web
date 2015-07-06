@@ -9,8 +9,7 @@ public class Recommend implements Serializable{
 	private static final long serialVersionUID = 4233303062143933600L;
 	//以下数据从db取
 	@JSONField(serialize = false)
-	private Integer id;
-	@JSONField(name="id")
+	private transient Integer id;
 	private String fid;
 	@JSONField(serialize = false)
 	private String recommendFid;

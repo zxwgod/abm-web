@@ -9,7 +9,7 @@ public class Favorite implements Serializable{
 	
 	private static final long serialVersionUID = 4233303062143933600L;
 	@JSONField(serialize = false)
-	private Integer id;
+	private transient Integer id;
 	@JSONField(serialize = false)
 	private String userFid;
 	@JSONField(name = "praiseLinkId")
