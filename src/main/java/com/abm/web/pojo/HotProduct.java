@@ -13,7 +13,7 @@ public class HotProduct implements Serializable{
 	@JSONField(serialize = false)
 	private transient Integer id;
 	private String pic;
-	@JSONField(name="id")
+	@JSONField(name="fid")
 	private String productFid;
 	private String desc;
 	@JSONField(serialize = false)
