@@ -109,7 +109,7 @@ public class ProductController extends BaseController{
 				favorite.setFavorFid(product.getFid());
 				favorite.setDesc(product.getDesc());
 				favorite.setFavorUrl(product.getUrl());
-				favorite.setFavorPic(product.getShowPics().split(Separator.COMMON)[0]);
+				favorite.setFavorPic(product.getShowPics().split(Separator.COMMON)[0].trim());
 				favorite.setUserFid(favorProductReq.getUserId());
 				favorite.setType(FavorType.PRODUCT.getCode());
 				favorite.setPrice(product.getPrice());
