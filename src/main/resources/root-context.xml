@@ -32,7 +32,6 @@
 		
 	<bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping"/>
 
-	<import resource="auth-context.xml" />
 	<import resource="dao.xml" />
 	<import resource="mybatis-config.xml" />
 	
